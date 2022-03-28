@@ -14,7 +14,7 @@ const todoRoutes = require('./routes/Todo');
 mongoose.Promise = global.Promise;
 
 // Connect MongoDB at default port 27017.
-mongoose.connect('mongodb://0.0.0.0:27017/Todo_app', {
+mongoose.connect('mongodb+srv://thanhjuio99:mylovetara7012@cluster0.zqd1i.mongodb.net/todo?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }, (err) => {
