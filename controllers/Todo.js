@@ -5,13 +5,13 @@
 exports.createTodo = (req, res, next) => {
     const todo = new Todo(req.body);
 
-    todo.save((err, task) => {
-        if (err || !task) {
+    todo.save((err, taskName) => {
+        if (err || !taskName) {
             return res.status(400).json({
                 message: 'something went wrong'
             });
         } else {
-            res.json({ task })
+            res.json({ taskName })
         }
     })
 }
@@ -50,30 +50,30 @@ exports.getTodo = (req, res) => {
 exports.updateTodo = (req, res, next) => {
     const todo = req.todo;
 
-    todo.task = req.body.task;
+    todo.taskName = req.body.taskName;
     console.log(todo);
 
-    todo.save((err, task) => {
-        if (err || !task) {
+    todo.save((err, taskName) => {
+        if (err || !taskName) {
             return res.status(400).json({
                 message: 'something went wrong while updating'
             });
         } else {
-            res.json({ task })
+            res.json({ taskName })
         }
     })
 }
 exports.deleteTodo = (req, res, next) => {
     const todo = req.todo;
 
-    todo.remove((err, task) => {
-        if (err || !task) {
+    todo.remove((err, taskName) => {
+        if (err || !taskName) {
             return res.status(400).json({
                 message: 'something went wrong while delete'
             });
         } else {
             res.json({
-                task_delete: task,
+                task_delete: taskName,
                 message: 'Todo deleted successfully'
             });
         }
