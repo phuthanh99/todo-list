@@ -2,7 +2,7 @@
 
 // Declare the Schema of the Mongo model
 var Todo = new mongoose.Schema({
-    task: {
+    taskName: {
         type: String,
         required: true,
         trim: true,
