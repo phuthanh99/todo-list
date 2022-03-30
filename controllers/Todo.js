@@ -70,8 +70,8 @@ exports.updateTodoDone = (req, res, next) => {
     todo.status = true;
    
 
-    todo.save((err, taskName) => {
-        if (err || !taskName) {
+    todo.save((err, status) => {
+        if (err ) {
             return res.status(400).json({
                 message: 'something went wrong while updating'
             });
@@ -86,8 +86,8 @@ exports.updateTodoReject = (req, res, next) => {
 
     todo.status = false;
 
-    todo.save((err, taskName) => {
-        if (err || !taskName) {
+    todo.save((err, status) => {
+        if (err ) {
             return res.status(400).json({
                 message: 'something went wrong while updating'
             });
