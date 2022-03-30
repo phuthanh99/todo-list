@@ -51,7 +51,7 @@ exports.updateTodo = (req, res, next) => {
     const todo = req.todo;
 
     todo.taskName = req.body.taskName;
-    console.log(todo);
+ 
 
     todo.save((err, taskName) => {
         if (err || !taskName) {
@@ -63,6 +63,40 @@ exports.updateTodo = (req, res, next) => {
         }
     })
 }
+
+exports.updateTodoDone = (req, res, next) => {
+    const todo = req.todo;
+
+    todo.status = true;
+   
+
+    todo.save((err, taskName) => {
+        if (err || !taskName) {
+            return res.status(400).json({
+                message: 'something went wrong while updating'
+            });
+        } else {
+            res.json({ status })
+        }
+    })
+}
+
+exports.updateTodoReject = (req, res, next) => {
+    const todo = req.todo;
+
+    todo.status = false;
+
+    todo.save((err, taskName) => {
+        if (err || !taskName) {
+            return res.status(400).json({
+                message: 'something went wrong while updating'
+            });
+        } else {
+            res.json({ status })
+        }
+    })
+}
+
 exports.deleteTodo = (req, res, next) => {
     const todo = req.todo;
 
