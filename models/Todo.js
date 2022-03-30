@@ -8,7 +8,10 @@ var Todo = new mongoose.Schema({
         trim: true,
         maxLength: 30,
     },
-    status: {type: Boolean },
+    status: {
+        type: Boolean,
+        default: true,
+    },
 
 }, { timestamps: true });
 
